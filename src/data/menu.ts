@@ -29,7 +29,7 @@ export const menu: CoffeeItem[] = [
       en: ["Dark Chocolate", "Caramel", "Toasted Nut"],
       tr: ["Bitter Çikolata", "Karamel", "Kavrulmuş Fındık"],
     },
-    image: "/assets/images/espresso.svg",
+    image: "/assets/images/espresso.jpg",
   },
   {
     id: "latte",
@@ -45,7 +45,7 @@ export const menu: CoffeeItem[] = [
       en: ["Milk Chocolate", "Vanilla", "Brown Sugar"],
       tr: ["Sütlü Çikolata", "Vanilya", "Esmer Şeker"],
     },
-    image: "/assets/images/latte.svg",
+    image: "/assets/images/latte.jpg",
   },
   {
     id: "cappuccino",
@@ -61,7 +61,7 @@ export const menu: CoffeeItem[] = [
       en: ["Cocoa", "Hazelnut", "Honey"],
       tr: ["Kakao", "Fındık", "Bal"],
     },
-    image: "/assets/images/cappuccino.svg",
+    image: "/assets/images/cappuccino.jpg",
   },
   {
     id: "cold-brew",
@@ -77,6 +77,6 @@ export const menu: CoffeeItem[] = [
       en: ["Berry", "Cane Sugar", "Citrus"],
       tr: ["Kırmızı Meyve", "Kamış Şekeri", "Narenciye"],
     },
-    image: "/assets/images/cold-brew.svg",
+    image: "/assets/images/cold-brew.jpg",
   },
 ];

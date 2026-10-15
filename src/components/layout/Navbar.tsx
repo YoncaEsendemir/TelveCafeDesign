@@ -72,52 +72,89 @@ export default function Navbar() {
     toggleRef.current?.focus();
   };
 
+  /* ── HEADER HATASI DÜZELTMESİ ───────────────────────────────────────
+     Eskiden en üstte (Hero'nun KOYU zemini üstünde) linkler koyu
+     (text-espresso) idi → koyu-üstüne-koyu, neredeyse görünmezdi.
+     Çözüm: "onDark" → sayfa tepedeyken açık renk metin + üstte yumuşak
+     koyu gradyan perde (gerçek kontrast); kaydırınca krem zemin + koyu metin. */
+  const onDark = !scrolled;
+  // İnteraktif metin rengi + hover rengi, duruma göre
+  const linkText = onDark
+    ? "text-cream/90 hover:text-white"
+    : "text-espresso/80 hover:text-burgundy";
+
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-colors duration-300",
-        // scrolled ise: yarı saydam cream + blur + alt kenarlık; değilse şeffaf
-        scrolled ? "border-b border-sand bg-cream/80 backdrop-blur-md" : "bg-transparent",
+        "fixed inset-x-0 top-0 z-50 transition-all duration-300",
+        scrolled
+          ? "border-b border-sand/60 bg-cream/85 shadow-sm shadow-espresso/5 backdrop-blur-md"
+          : // tepedeyken: perdeli gradyan → açık metin her zaman okunur
+            "bg-gradient-to-b from-espresso/55 via-espresso/20 to-transparent",
       )}
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        {/* Logo — animasyonlu (reduced-motion açıksa animasyon kapanır) */}
+        {/* Logo — animasyonlu + aksan noktası. Renk duruma göre. */}
         <motion.a
           href="#top"
-          className="font-heading text-2xl text-espresso"
+          className={cn(
+            "group flex items-center font-heading text-2xl font-bold tracking-tight transition-colors",
+            onDark ? "text-cream" : "text-espresso",
+          )}
           initial={reduced ? false : { opacity: 0, y: -8 }}
           animate={reduced ? undefined : { opacity: 1, y: 0 }}
-          whileHover={reduced ? undefined : { scale: 1.05 }}
+          whileHover={reduced ? undefined : { scale: 1.04 }}
           transition={{ duration: duration.base, ease: easeReveal }}
         >
           {brand.name}
+          {/* Marka adının sonundaki karamel nokta — küçük imza detayı */}
+          <span aria-hidden="true" className="ml-0.5 text-caramel">.</span>
         </motion.a>
 
         {/* ───── MASAÜSTÜ menü (md ve üstünde görünür) ───── */}
-        <nav aria-label={t.nav.menu} className="hidden items-center gap-6 md:flex">
+        <nav aria-label={t.nav.menu} className="hidden items-center gap-8 md:flex">
           {links.map((l) => (
             <a
               key={l.href}
               href={l.href}
-              className="text-espresso transition-colors hover:text-burgundy"
+              className={cn(
+                "group relative text-sm font-semibold transition-colors",
+                linkText,
+              )}
             >
               {l.label}
+              {/* Hover'da soldan açılan karamel alt çizgi (mikro-etkileşim) */}
+              <span
+                aria-hidden="true"
+                className="absolute -bottom-1.5 left-0 h-0.5 w-full origin-left scale-x-0 rounded-full bg-caramel transition-transform duration-300 group-hover:scale-x-100"
+              />
             </a>
           ))}
+
+          {/* Dil değiştirici — çerçeveli küçük pill (durumla uyumlu renk) */}
           <button
             type="button"
             onClick={toggleLang}
             aria-label={t.lang.switch}
-            className="text-espresso transition-colors hover:text-burgundy"
+            className={cn(
+              "rounded-full border px-3 py-1 text-xs font-semibold tracking-wide transition-colors",
+              onDark
+                ? "border-cream/40 text-cream/90 hover:border-cream hover:text-white"
+                : "border-sand text-espresso/80 hover:border-burgundy hover:text-burgundy",
+            )}
           >
             {lang === "en" ? t.lang.tr : t.lang.en}
           </button>
-          <a
+
+          {/* Birincil CTA — dolu burgundy + gölge + basış ölçeği (her zeminde okunur) */}
+          <motion.a
             href="#menu"
-            className="rounded-full bg-burgundy px-4 py-2 text-white transition-colors hover:bg-burgundy-dark"
+            whileHover={reduced ? undefined : { scale: 1.04 }}
+            whileTap={reduced ? undefined : { scale: 0.97 }}
+            className="rounded-full bg-burgundy px-5 py-2 text-sm font-semibold text-white shadow-lg shadow-burgundy/25 transition-colors hover:bg-burgundy-dark"
           >
             {t.nav.cta}
-          </a>
+          </motion.a>
         </nav>
 
         {/* ───── MOBİL hamburger butonu (md altında görünür) ───── */}
@@ -127,7 +164,7 @@ export default function Navbar() {
           onClick={() => setMobileOpen(true)}
           aria-label={t.nav.openMenu}
           aria-expanded={mobileOpen} // ekran okuyucuya "açık/kapalı" bilgisi
-          className="text-espresso md:hidden"
+          className={cn("md:hidden", onDark ? "text-cream" : "text-espresso")}
         >
           <MenuIcon size={28} aria-hidden="true" />
         </button>
@@ -145,7 +182,10 @@ export default function Navbar() {
             transition={{ duration: duration.fast }}
           >
             <div className="flex items-center justify-between px-6 py-4">
-              <span className="font-heading text-2xl text-espresso">{brand.name}</span>
+              <span className="font-heading text-2xl font-bold text-espresso">
+                {brand.name}
+                <span aria-hidden="true" className="ml-0.5 text-caramel">.</span>
+              </span>
               <button
                 type="button"
                 onClick={closeMobile}
@@ -157,7 +197,10 @@ export default function Navbar() {
               </button>
             </div>
 
-            <nav aria-label={t.nav.menu} className="flex flex-col gap-6 px-6 py-8 text-xl">
+            <nav
+              aria-label={t.nav.menu}
+              className="flex flex-col gap-6 px-6 py-8 text-2xl font-semibold"
+            >
               {links.map((l) => (
                 <a
                   key={l.href}
@@ -172,14 +215,14 @@ export default function Navbar() {
                 type="button"
                 onClick={toggleLang}
                 aria-label={t.lang.switch}
-                className="self-start text-espresso transition-colors hover:text-burgundy"
+                className="self-start rounded-full border border-sand px-4 py-1.5 text-base text-espresso/80 transition-colors hover:border-burgundy hover:text-burgundy"
               >
                 {lang === "en" ? t.lang.tr : t.lang.en}
               </button>
               <a
                 href="#menu"
                 onClick={closeMobile}
-                className="self-start rounded-full bg-burgundy px-5 py-2 text-white transition-colors hover:bg-burgundy-dark"
+                className="self-start rounded-full bg-burgundy px-6 py-2.5 text-base font-semibold text-white shadow-lg shadow-burgundy/25 transition-colors hover:bg-burgundy-dark"
               >
                 {t.nav.cta}
               </a>

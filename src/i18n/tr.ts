@@ -21,7 +21,10 @@ export const tr: typeof en = {
     scroll: "Aşağı kaydır",
   },
   menu: {
+    eyebrow: "Zanaatımız",
     title: "İmza Menü",
+    subtitle:
+      "Dört fincan, her biri kendi karakterinde — yoğun bir sabah shot'ından 18 saatlik soğuk demlemeye.",
     filters: {
       all: "Tümü",
       espresso: "Espresso",
@@ -33,19 +36,26 @@ export const tr: typeof en = {
     close: "Kapat",
   },
   story: {
+    eyebrow: "İlk dökümden beri",
     title: "Hikâyemiz",
     body:
       "TELVE, fincanın bittiği yerde başlar — dipteki telvede, her hikâyenin okunduğu yerde. Yavaş kavururuz, sabırla dökeriz; içeceği değil, ritüeli sunarız.",
+    highlights: ["Yavaş Kavrulmuş", "Tek Kaynak", "Elde Dökülmüş"],
   },
   gallery: {
+    eyebrow: "TELVE'nin İçi",
     title: "Deneyim",
+    subtitle: "Sıcak ışık, sakin köşeler ve her fincanın ardındaki yavaş zanaat.",
   },
   visit: {
+    eyebrow: "Buyurun",
     title: "Bize Gelin",
+    subtitle: "Bizi Kordon'da bulun — kapımız her zaman sıcak.",
     addressLabel: "Adres",
     hoursLabel: "Saatler",
     phoneLabel: "Telefon",
     emailLabel: "E-posta",
+    directions: "Yol Tarifi",
   },
   footer: {
     rights: "Tüm hakları saklıdır.",

@@ -17,11 +17,19 @@ export default function Footer() {
   const { t } = useLanguage();
 
   return (
-    <footer className="border-t border-sand/20 bg-espresso px-6 py-10 text-cream">
+    <footer className="relative bg-espresso px-6 py-12 text-cream">
+      {/* Üstte ince karamel aksan şeridi — sıcak marka vurgusu */}
+      <span
+        aria-hidden="true"
+        className="absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-transparent via-caramel to-transparent"
+      />
       <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 md:flex-row">
         {/* Marka adı + slogan */}
         <div className="text-center md:text-left">
-          <p className="font-heading text-2xl">{brand.name}</p>
+          <p className="font-heading text-2xl font-bold">
+            {brand.name}
+            <span aria-hidden="true" className="ml-0.5 text-caramel">.</span>
+          </p>
           <p className="text-sm text-cream/60">{brand.slogan.en}</p>
         </div>
 
@@ -32,7 +40,7 @@ export default function Footer() {
               <li key={s.label}>
                 <a
                   href={s.href}
-                  className="text-sm text-cream/80 transition-colors hover:text-caramel"
+                  className="text-sm font-medium text-cream/80 transition-colors hover:text-caramel"
                 >
                   {s.label}
                 </a>

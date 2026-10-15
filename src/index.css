@@ -9,9 +9,12 @@
      Tüm değerler token → bileşenler bg-cream, text-espresso, text-caramel ...
      yardımcı sınıflarını otomatik alır. */
   --color-cream: #fbf4e9;         /* sıcak süt köpüğü — ana zemin */
+  --color-surface: #fffdf8;       /* sıcak beyaza yakın — KART yüzeyi (cream üstünde hafif kabarır) */
+  --color-linen: #f3e7d1;         /* biraz daha koyu kum-krem — alternatif panel / chip zemini (derinlik) */
   --color-espresso: #2a1b12;      /* derin sıcak kavurma — metin + koyu bölüm */
   --color-mocha: #6b4327;         /* orta kavurma — çekirdek, koyu aksan */
   --color-caramel: #c98a3c;       /* amber/karamel — parıltı, vurgu (büyük/dekoratif) */
+  --color-caramel-bright: #e0a858;/* daha parlak amber — koyu zeminde gradyan ucu/parıltı */
   --color-burgundy: #9a3324;      /* sıcak kiremit-kırmızı — birincil CTA, link */
   --color-burgundy-dark: #7c2719; /* hover/active */
   --color-sand: #dcc6a4;          /* sıcak kum — kenarlık/ayraç */
@@ -36,16 +39,24 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* Başlıklar: Fraunces + kalın (600) + hafif sıkı harf aralığı.
+/* Başlıklar: Fraunces + KALIN (700) + biraz daha sıkı harf aralığı.
+   Not: self-host Fraunces 400–700 ağırlık kapsıyor → 700 en kalın değer.
    Tailwind preflight başlık font-weight'ini "inherit"e çeker; burada
-   geri kazandırıyoruz → başlıklar her yerde kalın ve karakterli. */
+   geri kazandırıyoruz → başlıklar her yerde dolu, karakterli ve göz alıcı.
+   (Kullanıcı isteği: "yazılar bir tik daha kalın olsun".) */
 h1,
 h2,
 h3 {
   font-family: var(--font-heading);
-  font-weight: 600;
-  letter-spacing: -0.015em;
-  line-height: 1.05;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.04;
+}
+
+/* Metin seçimi de sıcak paletten — küçük ama marka bütünlüğü veren detay */
+::selection {
+  background-color: var(--color-caramel);
+  color: var(--color-espresso);
 }
 
 /* Klavye kullanıcısı için her zaman görünür focus halkası */

@@ -20,7 +20,10 @@ export const en = {
     scroll: "Scroll down",
   },
   menu: {
+    eyebrow: "Our Craft",
     title: "Signature Menu",
+    subtitle:
+      "Four cups, each with its own character — from a dense morning shot to an 18-hour cold brew.",
     filters: {
       all: "All",
       espresso: "Espresso",
@@ -32,19 +35,26 @@ export const en = {
     close: "Close",
   },
   story: {
+    eyebrow: "Since the first pour",
     title: "Our Story",
     body:
       "TELVE begins where the cup ends — in the grounds at the bottom, where every story is read. We roast slowly, pour with patience, and serve the ritual, not just the drink.",
+    highlights: ["Slow Roasted", "Single Origin", "Hand Poured"],
   },
   gallery: {
+    eyebrow: "Inside TELVE",
     title: "The Experience",
+    subtitle: "Warm light, quiet corners, and the slow craft behind every cup.",
   },
   visit: {
+    eyebrow: "Come in",
     title: "Visit Us",
+    subtitle: "Find us on the Kordon — the door is always warm.",
     addressLabel: "Address",
     hoursLabel: "Hours",
     phoneLabel: "Phone",
     emailLabel: "Email",
+    directions: "Get Directions",
   },
   footer: {
     rights: "All rights reserved.",

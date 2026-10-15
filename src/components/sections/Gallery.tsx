@@ -4,13 +4,13 @@ import { useLanguage } from "@/i18n/LanguageContext";
 import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 import { duration, easeReveal, stagger } from "@/lib/motion";
 import { cn } from "@/lib/cn";
+import SectionHeading from "@/components/layout/SectionHeading";
 
 /* ════════════════════════════════════════════════════════════════════
    GALLERY — mekânın atmosferini gösteren görsel ızgara
    · Değişken ızgara: dikey (portrait) görsel 2 satır kaplar → kolaj hissi
-   · CLS = 0: her img'de width/height → tarayıcı yeri ÖNCEDEN ayırır,
-     görsel yüklenince sayfa ZIPLAMAZ
-   · Hover'da yumuşak zoom (overflow-hidden + group-hover:scale)
+   · CLS = 0: her img'de width/height → tarayıcı yeri ÖNCEDEN ayırır
+   · Hover'da yumuşak zoom + alttan beliren başlık (caption) overlay
    · whileInView ile ekrana girince sırayla belirir (reduced-motion'a saygılı)
    ════════════════════════════════════════════════════════════════════ */
 
@@ -28,16 +28,18 @@ export default function Gallery() {
   };
 
   return (
-    <section id="gallery" className="bg-cream px-6 py-24">
+    <section id="gallery" className="bg-linen/40 px-6 py-24 md:py-32">
       <div className="mx-auto max-w-6xl">
-        <h2 className="font-heading text-center text-4xl text-espresso md:text-5xl">
-          {t.gallery.title}
-        </h2>
+        <SectionHeading
+          eyebrow={t.gallery.eyebrow}
+          title={t.gallery.title}
+          subtitle={t.gallery.subtitle}
+        />
 
         {/* auto-rows: her satırın sabit yüksekliği → row-span hesaplanabilsin.
             Dikey görsel 2 satır kaplayınca kolaj düzeni oluşur. */}
         <motion.ul
-          className="mt-12 grid auto-rows-[180px] grid-cols-2 gap-4 md:auto-rows-[220px] lg:grid-cols-3"
+          className="mt-14 grid auto-rows-[180px] grid-cols-2 gap-4 md:auto-rows-[220px] lg:grid-cols-3"
           variants={reduced ? undefined : container}
           initial={reduced ? false : "hidden"}
           whileInView={reduced ? undefined : "show"}
@@ -51,7 +53,7 @@ export default function Gallery() {
                 key={img.id}
                 variants={reduced ? undefined : cell}
                 className={cn(
-                  "group overflow-hidden rounded-2xl",
+                  "group relative overflow-hidden rounded-2xl shadow-sm shadow-espresso/10",
                   isPortrait && "row-span-2",
                 )}
               >
@@ -67,6 +69,16 @@ export default function Gallery() {
                     !reduced && "group-hover:scale-105",
                   )}
                 />
+                {/* Hover overlay: alttan koyu gradyan + beliren başlık (caption).
+                    Dekoratif → aria-hidden; anlam zaten img alt'ında taşınıyor. */}
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-0 flex items-end bg-gradient-to-t from-espresso/80 via-espresso/10 to-transparent p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                >
+                  <span className="translate-y-2 text-sm font-semibold text-cream transition-transform duration-300 group-hover:translate-y-0">
+                    {img.alt[lang]}
+                  </span>
+                </div>
               </motion.li>
             );
           })}
