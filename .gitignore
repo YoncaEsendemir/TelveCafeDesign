@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 
+# Markdown / notlar (README dahil hiçbir .md repoya girmez)
+*.md
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
