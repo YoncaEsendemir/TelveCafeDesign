@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img">
+  <defs>
+    <radialGradient id="gbbg" cx="50%" cy="45%" r="75%">
+      <stop offset="0%" stop-color="#7a4d2e"/>
+      <stop offset="100%" stop-color="#2A1B12"/>
+    </radialGradient>
+    <linearGradient id="bean" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#C98A3C"/>
+      <stop offset="100%" stop-color="#6B4327"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#gbbg)"/>
+  <!-- scoop -->
+  <g transform="translate(760 470) rotate(18)">
+    <rect x="0" y="-16" width="260" height="32" rx="16" fill="#DCC6A4"/>
+    <path d="M-20 0 a150 120 0 0 0 200 0 a150 90 0 0 0 -200 0 z" fill="#F3E6D0"/>
+  </g>
+  <!-- scattered beans -->
+  <g>
+    <g transform="translate(260 300) rotate(20)"><ellipse rx="42" ry="60" fill="url(#bean)"/><path d="M0 -54 C -18 -12 18 24 0 54" stroke="#2A1B12" stroke-opacity="0.5" stroke-width="5" fill="none"/></g>
+    <g transform="translate(380 420) rotate(-15)"><ellipse rx="40" ry="56" fill="url(#bean)"/><path d="M0 -50 C -16 -10 16 22 0 50" stroke="#2A1B12" stroke-opacity="0.5" stroke-width="5" fill="none"/></g>
+    <g transform="translate(300 540) rotate(40)"><ellipse rx="38" ry="54" fill="url(#bean)"/><path d="M0 -48 C -16 -10 16 20 0 48" stroke="#2A1B12" stroke-opacity="0.5" stroke-width="5" fill="none"/></g>
+    <g transform="translate(470 310) rotate(-30)"><ellipse rx="36" ry="52" fill="url(#bean)"/><path d="M0 -46 C -14 -8 14 20 0 46" stroke="#2A1B12" stroke-opacity="0.5" stroke-width="5" fill="none"/></g>
+    <g transform="translate(500 470) rotate(8)"><ellipse rx="40" ry="58" fill="url(#bean)"/><path d="M0 -52 C -16 -10 16 22 0 52" stroke="#2A1B12" stroke-opacity="0.5" stroke-width="5" fill="none"/></g>
+    <g transform="translate(180 440) rotate(-45)"><ellipse rx="34" ry="50" fill="url(#bean)"/><path d="M0 -44 C -14 -8 14 18 0 44" stroke="#2A1B12" stroke-opacity="0.5" stroke-width="5" fill="none"/></g>
+    <g transform="translate(600 380) rotate(55)"><ellipse rx="36" ry="52" fill="url(#bean)"/><path d="M0 -46 C -14 -8 14 20 0 46" stroke="#2A1B12" stroke-opacity="0.5" stroke-width="5" fill="none"/></g>
+    <g transform="translate(400 560) rotate(-8)"><ellipse rx="38" ry="54" fill="url(#bean)"/><path d="M0 -48 C -16 -10 16 20 0 48" stroke="#2A1B12" stroke-opacity="0.5" stroke-width="5" fill="none"/></g>
+  </g>
+</svg>

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200" role="img">
+  <defs>
+    <linearGradient id="gpbg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8a5a37"/>
+      <stop offset="100%" stop-color="#2A1B12"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="1200" fill="url(#gpbg)"/>
+  <!-- buhar -->
+  <g stroke="#DCC6A4" stroke-width="8" stroke-linecap="round" fill="none" opacity="0.4">
+    <path d="M430 300 C 410 250 470 230 450 180"/>
+    <path d="M500 300 C 480 250 540 230 520 180"/>
+  </g>
+  <!-- kettle (gooseneck) -->
+  <g>
+    <rect x="150" y="360" width="220" height="150" rx="30" fill="#2A1B12"/>
+    <rect x="150" y="360" width="220" height="150" rx="30" fill="#C98A3C" opacity="0.15"/>
+    <path d="M370 400 q120 -10 110 90" fill="none" stroke="#2A1B12" stroke-width="18" stroke-linecap="round"/>
+    <rect x="200" y="320" width="120" height="26" rx="13" fill="#2A1B12"/>
+  </g>
+  <!-- pour stream -->
+  <path d="M480 496 C 476 600 470 660 466 720" stroke="#DCC6A4" stroke-width="9" fill="none" opacity="0.8"/>
+  <!-- V60 dripper + carafe -->
+  <g>
+    <path d="M330 720 h300 l-120 150 h-60 z" fill="#F3E6D0"/>
+    <path d="M360 724 h240 l-96 120 h-48 z" fill="#9A3324" opacity="0.9"/>
+    <!-- carafe -->
+    <path d="M360 880 h240 l-24 220 a30 30 0 0 1 -30 26 h-132 a30 30 0 0 1 -30 -26 z" fill="#FBF4E9" opacity="0.2"/>
+    <path d="M372 900 h216 l-20 190 a24 24 0 0 1 -24 20 h-128 a24 24 0 0 1 -24 -20 z" fill="#6B4327"/>
+    <rect x="384" y="920" width="12" height="180" rx="6" fill="#FFFFFF" opacity="0.25"/>
+  </g>
+</svg>

@@ -6,15 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#2A1B12" />
 
-    <!-- Fontlar: Fraunces (sıcak display serif — başlık) + Manrope (gövde).
-         display=swap → font yüklenene kadar metin görünmez kalmaz (FOIT önlenir).
-         Not: ileride self-host edilecek (foundation adımı); şimdilik Google Fonts. -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <!-- Fontlar self-host (src/fonts.css) → KVKK uyumlu, yayında dış istek yok -->
+    <link rel="preload" href="/fonts/xn7gYHE41ni1AdIRggexSg.woff2" as="font" type="font/woff2" crossorigin />
 
     <title>TELVE — Every Cup Has a Story</title>
     <meta
@@ -29,7 +22,7 @@
       property="og:description"
       content="Specialty coffee as a ritual. Every cup has a story."
     />
-    <meta property="og:image" content="/og-image.jpg" />
+    <meta property="og:image" content="/og-image.svg" />
     <meta name="twitter:card" content="summary_large_image" />
   </head>
   <body>

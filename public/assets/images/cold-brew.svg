@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" role="img">
+  <defs>
+    <linearGradient id="cdbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#9a6a3f"/>
+      <stop offset="100%" stop-color="#3a2416"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="480" fill="url(#cdbg)"/>
+  <!-- straw -->
+  <rect x="356" y="96" width="14" height="300" rx="7" fill="#9A3324" transform="rotate(8 363 240)"/>
+  <!-- tall glass -->
+  <path d="M252 128 h136 l-14 280 a16 16 0 0 1 -16 15 h-76 a16 16 0 0 1 -16 -15 z" fill="#FBF4E9" opacity="0.16"/>
+  <path d="M260 136 h120 l-13 268 a14 14 0 0 1 -14 13 h-66 a14 14 0 0 1 -14 -13 z" fill="#4a2e1a"/>
+  <!-- cold brew liquid -->
+  <path d="M262 210 h116 l-11 196 a12 12 0 0 1 -12 11 h-58 a12 12 0 0 1 -12 -11 z" fill="#6B4327"/>
+  <!-- ice cubes -->
+  <g fill="#FBF4E9" opacity="0.8">
+    <rect x="286" y="224" width="40" height="40" rx="7" transform="rotate(-12 306 244)"/>
+    <rect x="320" y="256" width="38" height="38" rx="7" transform="rotate(10 339 275)"/>
+    <rect x="292" y="292" width="36" height="36" rx="7" transform="rotate(6 310 310)"/>
+  </g>
+  <!-- glass highlight -->
+  <rect x="270" y="150" width="12" height="240" rx="6" fill="#FFFFFF" opacity="0.28"/>
+</svg>

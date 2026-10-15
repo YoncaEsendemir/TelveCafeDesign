@@ -10,6 +10,7 @@ export const en = {
     cta: "See Menu",
     openMenu: "Open menu",
     closeMenu: "Close menu",
+    skip: "Skip to content",
   },
   hero: {
     title: "Every Cup Has a Story",

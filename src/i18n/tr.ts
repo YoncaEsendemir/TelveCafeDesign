@@ -11,6 +11,7 @@ export const tr: typeof en = {
     cta: "Menüyü Gör",
     openMenu: "Menüyü aç",
     closeMenu: "Menüyü kapat",
+    skip: "İçeriğe geç",
   },
   hero: {
     title: "Her Fincanın Bir Hikâyesi Var",

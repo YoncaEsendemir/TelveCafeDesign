@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "./fonts.css"; /* self-host fontlar (KVKK: Google'a istek yok) */
 
 /* ── Tasarım token'ları (Tailwind v4 CSS-first @theme) ──────────────
    Buradaki her --color-* / --font-* değeri otomatik olarak Tailwind
