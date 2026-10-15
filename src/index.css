@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+/* ── Tasarım token'ları (Tailwind v4 CSS-first @theme) ──────────────
+   Buradaki her --color-* / --font-* değeri otomatik olarak Tailwind
+   yardımcı sınıfı üretir: bg-cream, text-espresso, font-heading ...     */
+@theme {
+  /* ── Sıcak kahve paleti (ısıtıldı: daha hoş, bütünlüklü) ──
+     Tüm değerler token → bileşenler bg-cream, text-espresso, text-caramel ...
+     yardımcı sınıflarını otomatik alır. */
+  --color-cream: #fbf4e9;         /* sıcak süt köpüğü — ana zemin */
+  --color-espresso: #2a1b12;      /* derin sıcak kavurma — metin + koyu bölüm */
+  --color-mocha: #6b4327;         /* orta kavurma — çekirdek, koyu aksan */
+  --color-caramel: #c98a3c;       /* amber/karamel — parıltı, vurgu (büyük/dekoratif) */
+  --color-burgundy: #9a3324;      /* sıcak kiremit-kırmızı — birincil CTA, link */
+  --color-burgundy-dark: #7c2719; /* hover/active */
+  --color-sand: #dcc6a4;          /* sıcak kum — kenarlık/ayraç */
+  --color-success: #3f6b3a;       /* form başarı durumu */
+
+  /* Tipografi — Fraunces (sıcak display serif) + Manrope (gövde).
+     Fontlar index.html'de yükleniyor; ileride self-host edilecek. */
+  --font-heading: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-body: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-cream);
+  color: var(--color-espresso);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Başlıklar: Fraunces + kalın (600) + hafif sıkı harf aralığı.
+   Tailwind preflight başlık font-weight'ini "inherit"e çeker; burada
+   geri kazandırıyoruz → başlıklar her yerde kalın ve karakterli. */
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.05;
+}
+
+/* Klavye kullanıcısı için her zaman görünür focus halkası */
+:focus-visible {
+  outline: 2px solid var(--color-burgundy);
+  outline-offset: 2px;
+}
+
+/* Anchor linklere tıklayınca yumuşak kaydırma — ama reduced-motion'a saygı */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Sabit navbar, kaydırılan bölüm başlıklarını örtmesin diye üstten pay bırak */
+section[id] {
+  scroll-margin-top: 5rem;
+}
