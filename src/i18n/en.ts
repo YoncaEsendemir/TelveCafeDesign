@@ -32,7 +32,15 @@ export const en = {
     },
     roastLabel: "Roast",
     viewDetails: "View details",
+    viewFull: "See Full Menu",
     close: "Close",
+  },
+  menuPage: {
+    eyebrow: "Our Menu",
+    title: "The Full Menu",
+    subtitle: "Hot, cold and sweet — the whole table, laid out.",
+    back: "Back to Home",
+    priceNote: "All prices include VAT.",
   },
   story: {
     eyebrow: "Since the first pour",

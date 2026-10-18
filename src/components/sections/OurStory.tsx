@@ -5,6 +5,7 @@ import { useLanguage } from "@/i18n/LanguageContext";
 import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 import { duration, easeReveal, stagger } from "@/lib/motion";
 import SectionHeading from "@/components/layout/SectionHeading";
+import CoffeePour from "@/components/decor/CoffeePour";
 
 /* ════════════════════════════════════════════════════════════════════
    OUR STORY — koyu temalı anlatı bölümü ("nefes alma" molası)
@@ -46,6 +47,8 @@ export default function OurStory() {
         aria-hidden="true"
         className="absolute inset-0 bg-[radial-gradient(circle_at_50%_30%,rgba(201,138,60,0.18),transparent_62%)]"
       />
+      {/* Dökülen kahve + buhar (dekor) — reduced-motion'da kendini kapatır */}
+      <CoffeePour />
 
       <div className="relative mx-auto max-w-3xl text-center">
         {/* Ortak başlık bloğu (koyu varyant: eyebrow caramel) */}

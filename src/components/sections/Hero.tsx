@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { motion, type Variants } from "framer-motion";
 import { ArrowDown, ArrowRight } from "lucide-react";
 import heroImg from "@/assets/hero.jpg";
@@ -6,6 +7,7 @@ import { useLanguage } from "@/i18n/LanguageContext";
 import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 import { duration, stagger } from "@/lib/motion";
 import { cn } from "@/lib/cn";
+import CoffeeBean from "@/components/decor/CoffeeBean";
 
 /* ════════════════════════════════════════════════════════════════════
    HERO — sitenin ilk ekranı (tam yükseklik karşılama bölümü)
@@ -36,36 +38,6 @@ const STEAM = [
   { left: "50%", delay: 1.5, dur: 7 },
   { left: "58%", delay: 0.8, dur: 6.5 },
 ] as const;
-
-/** Gerçekçi kahve çekirdeği (SVG): kavrulmuş görünüm için karamel→mocha
- *  gradyan + ortada koyu oluk. Dekoratif (aria-hidden ebeveynden gelir).
- *  Her çekirdeğin gradyanı benzersiz id ister → `gid` ile üretiyoruz. */
-function CoffeeBean({ size, gid }: { size: number; gid: string }) {
-  return (
-    <svg width={size} height={size * 1.28} viewBox="0 0 28 36" fill="none">
-      <defs>
-        <linearGradient id={gid} x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="var(--color-caramel-bright)" />
-          <stop offset="100%" stopColor="var(--color-mocha)" />
-        </linearGradient>
-      </defs>
-      {/* Çekirdek gövdesi (oval) */}
-      <path
-        d="M14 1 C 23 1 27 9 27 18 C 27 28 21 35 14 35 C 7 35 1 28 1 18 C 1 9 5 1 14 1 Z"
-        fill={`url(#${gid})`}
-      />
-      {/* Ortadaki kıvrımlı oluk (çekirdeğin çizgisi) */}
-      <path
-        d="M14 3 C 10 11 18 20 14 33"
-        stroke="var(--color-espresso)"
-        strokeOpacity="0.55"
-        strokeWidth="1.6"
-        strokeLinecap="round"
-        fill="none"
-      />
-    </svg>
-  );
-}
 
 export default function Hero() {
   const { t } = useLanguage(); // seçili dilin metin sözlüğü
@@ -214,8 +186,8 @@ export default function Hero() {
           animate={reduced ? undefined : { opacity: 1, y: 0 }}
           transition={{ duration: duration.base, delay: reduced ? 0 : 0.7 }}
         >
-          <a
-            href="#menu"
+          <Link
+            to="/menu"
             className={cn(
               "group inline-flex items-center gap-2 rounded-full bg-burgundy px-7 py-3.5 font-semibold text-white shadow-xl shadow-burgundy/30 transition",
               "hover:bg-burgundy-dark",
@@ -229,7 +201,7 @@ export default function Hero() {
               aria-hidden="true"
               className="transition-transform duration-300 group-hover:translate-x-1"
             />
-          </a>
+          </Link>
           <a
             href="#story"
             className={cn(

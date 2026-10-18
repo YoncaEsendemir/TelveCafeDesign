@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowRight, X } from "lucide-react";
 import { menu, type CoffeeItem } from "@/data/menu";
@@ -207,6 +208,21 @@ export default function Menu() {
             ))}
           </AnimatePresence>
         </motion.ul>
+
+        {/* Bu bölüm sadece bir ÖNİZLEME → tam menü ayrı sayfada (/menu) */}
+        <div className="mt-12 text-center">
+          <Link
+            to="/menu"
+            className="group inline-flex items-center gap-2 rounded-full border border-burgundy px-7 py-3 font-semibold text-burgundy transition hover:bg-burgundy hover:text-white"
+          >
+            {t.menu.viewFull}
+            <ArrowRight
+              size={18}
+              aria-hidden="true"
+              className="transition-transform duration-300 group-hover:translate-x-1"
+            />
+          </Link>
+        </div>
       </div>
 
       {/* ── Detay modalı ──────────────────────────────────────────────── */}

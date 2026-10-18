@@ -20,6 +20,14 @@ if (!window.matchMedia) {
   });
 }
 
+// scrollTo / scrollIntoView → ScrollManager (react-router rota/hash kaydırma)
+// bunları çağırır; jsdom'da gerçek yok ("Not implemented" uyarısı basar).
+// No-op stub'larla sessizleştiriyoruz (testte gerçek kaydırma gerekmez).
+window.scrollTo = vi.fn();
+if (!Element.prototype.scrollIntoView) {
+  Element.prototype.scrollIntoView = vi.fn();
+}
+
 // IntersectionObserver → Framer Motion'ın `whileInView`'ı (OurStory) bunu kullanır.
 // jsdom'da yok; observe/unobserve/disconnect no-op bir sınıfla taklit ediyoruz
 // (testte animasyon tetiklenmesine gerek yok, sadece çökmemeli).

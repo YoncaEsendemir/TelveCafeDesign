@@ -33,7 +33,15 @@ export const tr: typeof en = {
     },
     roastLabel: "Kavurma",
     viewDetails: "Detayları gör",
+    viewFull: "Tüm Menüyü Gör",
     close: "Kapat",
+  },
+  menuPage: {
+    eyebrow: "Menümüz",
+    title: "Tüm Menü",
+    subtitle: "Sıcak, soğuk ve tatlı — sofranın tamamı, önünüzde.",
+    back: "Ana Sayfaya Dön",
+    priceNote: "Tüm fiyatlara KDV dahildir.",
   },
   story: {
     eyebrow: "İlk dökümden beri",

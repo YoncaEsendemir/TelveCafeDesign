@@ -5,6 +5,7 @@ import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 import { duration, easeReveal, stagger } from "@/lib/motion";
 import { cn } from "@/lib/cn";
 import SectionHeading from "@/components/layout/SectionHeading";
+import BeanField from "@/components/decor/BeanField";
 
 /* ════════════════════════════════════════════════════════════════════
    GALLERY — mekânın atmosferini gösteren görsel ızgara
@@ -28,8 +29,11 @@ export default function Gallery() {
   };
 
   return (
-    <section id="gallery" className="bg-linen/40 px-6 py-24 md:py-32">
-      <div className="mx-auto max-w-6xl">
+    <section id="gallery" className="relative overflow-hidden bg-linen/40 px-6 py-24 md:py-32">
+      {/* Arka planda yuvarlanıp geçen çekirdekler (dekor) — reduced-motion'da statik */}
+      <BeanField />
+
+      <div className="relative mx-auto max-w-6xl">
         <SectionHeading
           eyebrow={t.gallery.eyebrow}
           title={t.gallery.title}

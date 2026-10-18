@@ -76,3 +76,102 @@ h3 {
 section[id] {
   scroll-margin-top: 5rem;
 }
+
+/* ════════════════════════════════════════════════════════════════════
+   DEKORATİF KAHVE ANİMASYONLARI (CSS keyframes — GPU'da pürüzsüz/modern)
+   · BeanField: ekranı boydan boya YUVARLANARAK geçen çekirdekler
+   · CoffeePour: aşağı akan kahve damlaları + yükselen buhar
+   Değerler bileşenlerden CSS değişkenleriyle gelir (--top,--dur,--delay,--left..)
+   NOT: translateX(vw) → kendi boyutuna değil EKRANA göre hareket (gerçek geçiş).
+   ════════════════════════════════════════════════════════════════════ */
+@keyframes telve-bean-roll {
+  from {
+    transform: translateX(-14vw) rotate(0deg);
+  }
+  to {
+    transform: translateX(114vw) rotate(720deg);
+  }
+}
+@keyframes telve-drip {
+  0% {
+    transform: translateY(-12vh);
+    opacity: 0;
+  }
+  12% {
+    opacity: 0.9;
+  }
+  85% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(82vh);
+    opacity: 0;
+  }
+}
+@keyframes telve-steam {
+  0% {
+    transform: translateY(0) scaleX(1);
+    opacity: 0;
+  }
+  45% {
+    opacity: 0.55;
+  }
+  100% {
+    transform: translateY(-150px) scaleX(2.2);
+    opacity: 0;
+  }
+}
+
+/* Tek çekirdek: ekranı yatay geçer + döner. Yön `--dir` ile (normal/reverse). */
+.telve-bean {
+  position: absolute;
+  left: 0;
+  top: var(--top);
+  opacity: var(--op);
+  filter: drop-shadow(0 4px 6px rgba(42, 27, 18, 0.18)); /* modern derinlik */
+  animation: telve-bean-roll var(--dur) linear var(--delay) infinite;
+  animation-direction: var(--dir, normal);
+  will-change: transform;
+}
+
+/* Tek damla: yukarıdan aşağı akar. Parlak amber + hafif ışıma (modern). */
+.telve-drip {
+  position: absolute;
+  top: 0;
+  left: var(--left);
+  width: 4px;
+  height: 30px;
+  border-radius: 9999px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--color-caramel-bright),
+    transparent
+  );
+  box-shadow: 0 0 10px rgba(224, 168, 88, 0.55);
+  animation: telve-drip var(--dur) ease-in var(--delay) infinite;
+  will-change: transform, opacity;
+}
+
+/* Buhar tutamı: alttan yükselip genişleyerek dağılır. */
+.telve-steam {
+  position: absolute;
+  bottom: 3rem;
+  left: var(--left);
+  width: 0.75rem;
+  height: 9rem;
+  border-radius: 9999px;
+  background: rgba(251, 244, 233, 0.32); /* cream/32 */
+  filter: blur(8px);
+  animation: telve-steam var(--dur) ease-out var(--delay) infinite;
+  will-change: transform, opacity;
+}
+
+/* Erişilebilirlik: hareketi azalt açıksa tüm dekoratif animasyonları durdur */
+@media (prefers-reduced-motion: reduce) {
+  .telve-bean,
+  .telve-drip,
+  .telve-steam {
+    animation: none !important;
+  }
+}
