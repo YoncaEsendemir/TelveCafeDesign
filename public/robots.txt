@@ -1,0 +1,7 @@
+# TELVE — arama motoru botları için tarama kuralları
+# Tüm botlara tüm sayfaları tarama izni ver (site bulunsun/indekslensin istiyoruz).
+User-agent: *
+Allow: /
+
+# Sitemap: https://ALAN-ADIN/sitemap.xml
+# ↑ Gerçek alan adı belli olunca (deploy) aç + public/sitemap.xml ekle.
