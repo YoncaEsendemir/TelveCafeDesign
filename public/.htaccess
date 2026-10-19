@@ -36,11 +36,47 @@ AddDefaultCharset UTF-8
 </IfModule>
 
 # ── Güvenlik başlıkları ──
+# Bu başlıklar tarayıcıya "şu güvenlik kurallarına uy" der. Sunucu tarafı
+# korumamız yok (statik site) → asıl kalkanımız bu başlıklar.
 <IfModule mod_headers.c>
+  # MIME-sniffing kapalı: tarayıcı dosya tipini "tahmin etmesin", sadece
+  # bizim söylediğimiz Content-Type'a güvensin (ör. .txt'yi script sanıp çalıştırmasın).
   Header set X-Content-Type-Options "nosniff"
+
+  # Clickjacking koruması: sitemiz başka bir sitenin <iframe>'ine gömülemez.
+  # (CSP'deki frame-ancestors bunu modernleştirir; ikisi birlikte = eski+yeni tarayıcı.)
   Header set X-Frame-Options "SAMEORIGIN"
+
+  # Referrer gizliliği: başka siteye tıklayınca sadece domain'imiz gider,
+  # tam URL (yol/sorgu) sızmaz. HTTPS→HTTP geçişinde hiç referrer göndermez. (KVKK)
   Header set Referrer-Policy "strict-origin-when-cross-origin"
-  # Fontlar aynı kaynaktan servis edilir
+
+  # ── Content-Security-Policy (CSP) — en güçlü XSS kalkanı ──
+  # Her kaynak tipinin NEREDEN yüklenebileceğini kısıtlar. 'self' = yalnız
+  # kendi domain'imiz. Dışarıdan script/font/istek = reddedilir (KVKK + güvenlik).
+  #   script-src 'self'           → script sadece bizden; satır içi/eval YASAK (XSS'i öldürür)
+  #   style-src 'self' + unsafe-inline → Framer Motion/React element'e satır içi `style`
+  #                                 yazıyor; CSS'te XSS riski düşük olduğu için izinli.
+  #   img-src 'self' data:        → görseller bizden; data: URI (küçük gömülü SVG/png) serbest
+  #   connect-src 'self'          → fetch/XHR yalnız bize (dışarı veri gönderilemez)
+  #   object-src 'none'           → <object>/<embed> tamamen kapalı (eski plugin açıkları)
+  #   base-uri / form-action 'self' → <base> ve form hedefi kaçırılamaz
+  #   frame-ancestors 'self'      → modern clickjacking koruması
+  #   upgrade-insecure-requests   → yanlışlıkla http:// kalan varlık varsa https'e çevir
+  Header set Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; upgrade-insecure-requests"
+
+  # ── Permissions-Policy — kullanmadığımız donanım/özellikleri tamamen kapat ──
+  # Boş "()" = hiçbir kaynağa izin yok. Site bu API'leri hiç istemiyor; kapatmak
+  # saldırı yüzeyini sıfırlar. interest-cohort=() → Google FLoC takibini de kapatır (KVKK).
+  Header set Permissions-Policy "geolocation=(), camera=(), microphone=(), payment=(), usb=(), magnetometer=(), gyroscope=(), interest-cohort=()"
+
+  # ── HSTS — tarayıcıyı HER ZAMAN HTTPS'e zorla ──
+  # Araya girme (man-in-the-middle) saldırısına karşı. max-age=1 yıl.
+  # NOT: Yalnızca HTTPS üzerinden gönderilir; cPanel'de SSL (Let's Encrypt) AKTİF
+  #      olduğunda etkili olur. SSL yoksa tarayıcı bu satırı görmez, zarar vermez.
+  Header set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+
+  # Fontlar aynı kaynaktan servis edilir → 1 yıl değişmez (immutable) önbellek
   <FilesMatch "\.woff2$">
     Header set Cache-Control "public, max-age=31536000, immutable"
   </FilesMatch>
