@@ -38,7 +38,7 @@ export const fullMenu: MenuSection[] = [
           tr: "Yoğun ve dürüst bir shot — ritüelin en saf hali.",
         },
         price: "₺70",
-        image: "/assets/images/espresso.jpg",
+        image: "/assets/images/espresso.webp",
       },
       {
         id: "turkish",
@@ -76,7 +76,7 @@ export const fullMenu: MenuSection[] = [
           tr: "Yumuşak bir tabanın üzerinde ipeksi süt köpüğü.",
         },
         price: "₺95",
-        image: "/assets/images/latte.jpg",
+        image: "/assets/images/latte.webp",
       },
       {
         id: "cappuccino",
@@ -86,7 +86,7 @@ export const fullMenu: MenuSection[] = [
           tr: "Köpük, espresso ve sıcaklığın dengeli buluşması.",
         },
         price: "₺90",
-        image: "/assets/images/cappuccino.jpg",
+        image: "/assets/images/cappuccino.webp",
       },
       {
         id: "mocha",
@@ -124,7 +124,7 @@ export const fullMenu: MenuSection[] = [
           tr: "18 saat soğuk demleme. Yumuşak, düşük asit, sabırlı.",
         },
         price: "₺100",
-        image: "/assets/images/cold-brew.jpg",
+        image: "/assets/images/cold-brew.webp",
         tag: SIGNATURE,
       },
       {
@@ -172,7 +172,7 @@ export const fullMenu: MenuSection[] = [
           tr: "Tereyağlı bisküvi tabanında kremsi fırın cheesecake.",
         },
         price: "₺120",
-        image: "/assets/images/dessert-cheesecake.jpg",
+        image: "/assets/images/dessert-cheesecake.webp",
         tag: SIGNATURE,
       },
       {
@@ -183,7 +183,7 @@ export const fullMenu: MenuSection[] = [
           tr: "Yoğun bitter çikolatalı brownie, kavrulmuş cevizle sıcak.",
         },
         price: "₺110",
-        image: "/assets/images/dessert-brownie.jpg",
+        image: "/assets/images/dessert-brownie.webp",
       },
       {
         id: "san-sebastian",
@@ -193,7 +193,7 @@ export const fullMenu: MenuSection[] = [
           tr: "Üstü yanık Bask usulü cheesecake — karamelize ve yumuşak.",
         },
         price: "₺130",
-        image: "/assets/images/dessert-sansebastian.jpg",
+        image: "/assets/images/dessert-sansebastian.webp",
       },
       {
         id: "carrot-cake",

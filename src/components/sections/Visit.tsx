@@ -115,7 +115,7 @@ export default function Visit() {
           >
             {/* Soluk mekan fotoğrafı + scrim + karamel parıltı */}
             <img
-              src="/assets/images/gallery-seats.jpg"
+              src="/assets/images/gallery-seats.webp"
               alt=""
               aria-hidden="true"
               loading="lazy"

@@ -36,7 +36,7 @@ export default function OurStory() {
     <section id="story" className="relative overflow-hidden bg-espresso px-6 py-28 text-cream md:py-36">
       {/* Soluk çekirdek dokusu (dekoratif) — koyu zemine derinlik verir */}
       <img
-        src="/assets/images/gallery-beans.jpg"
+        src="/assets/images/gallery-beans.webp"
         alt=""
         aria-hidden="true"
         loading="lazy"

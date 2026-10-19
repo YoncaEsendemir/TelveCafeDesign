@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { motion, type Variants } from "framer-motion";
 import { ArrowDown, ArrowRight } from "lucide-react";
-import heroImg from "@/assets/hero.jpg";
+import heroImg from "@/assets/hero.webp";
 import { brand } from "@/data/brand";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
