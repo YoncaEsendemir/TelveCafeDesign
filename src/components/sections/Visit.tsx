@@ -74,7 +74,8 @@ export default function Visit() {
                     <Icon size={20} aria-hidden="true" />
                   </span>
                   <span>
-                    <span className="block text-xs font-semibold tracking-wide text-espresso/50 uppercase">
+                    {/* Etiket: /70 → WCAG AA geçer (surface üstünde 6.1:1; /50 sadece 3.24:1'di) */}
+                    <span className="block text-xs font-semibold tracking-wide text-espresso/70 uppercase">
                       {label}
                     </span>
                     <span className="mt-0.5 block text-lg font-medium text-espresso">{value}</span>

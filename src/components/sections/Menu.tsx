@@ -27,7 +27,7 @@ type FilterKey = "all" | CoffeeItem["category"];
 function RoastMeter({ roast, label }: { roast: number; label: string }) {
   return (
     <div role="img" aria-label={`${label}: ${roast}/5`} className="flex items-center gap-2">
-      <span aria-hidden="true" className="text-xs font-medium tracking-wide text-espresso/50 uppercase">
+      <span aria-hidden="true" className="text-xs font-medium tracking-wide text-espresso/70 uppercase">
         {label}
       </span>
       <span aria-hidden="true" className="flex items-center gap-1">

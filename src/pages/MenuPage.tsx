@@ -173,7 +173,7 @@ export default function MenuPage() {
         {/* Geri dön linki */}
         <Link
           to="/"
-          className="group inline-flex items-center gap-1.5 text-sm font-semibold text-espresso/60 transition-colors hover:text-burgundy"
+          className="group inline-flex items-center gap-1.5 text-sm font-semibold text-espresso/70 transition-colors hover:text-burgundy"
         >
           <ArrowLeft
             size={16}
@@ -259,10 +259,10 @@ export default function MenuPage() {
                     >
                       {cat.title[lang]}
                     </h2>
-                    <p className="mt-1 text-sm text-espresso/60">{cat.blurb[lang]}</p>
+                    <p className="mt-1 text-sm text-espresso/70">{cat.blurb[lang]}</p>
                   </div>
                 </div>
-                <span className="hidden shrink-0 rounded-full border border-sand px-3 py-1 text-xs font-semibold tabular-nums text-espresso/50 sm:inline-block">
+                <span className="hidden shrink-0 rounded-full border border-sand px-3 py-1 text-xs font-semibold tabular-nums text-espresso/70 sm:inline-block">
                   {cat.items.length}
                 </span>
               </div>
@@ -285,7 +285,7 @@ export default function MenuPage() {
         </div>
 
         {/* Fiyat notu */}
-        <p className="mt-16 text-center text-xs text-espresso/45">{t.menuPage.priceNote}</p>
+        <p className="mt-16 text-center text-xs text-espresso/70">{t.menuPage.priceNote}</p>
       </div>
     </section>
   );
