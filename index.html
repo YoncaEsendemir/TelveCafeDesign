@@ -15,19 +15,26 @@
       content="TELVE — specialty coffee as a ritual. Signature espresso, milk and cold brews. Every cup has a story."
     />
 
-    <!-- Open Graph / sosyal paylaşım -->
+    <!-- Canonical: arama motorlarına "bu sayfanın asıl adresi budur" der (kopya
+         içerik sorununu önler). Varsayılan = ana sayfa (mutlak URL ŞART).
+         Diğer rotalarda (/menu) ScrollManager bunu JS ile günceller. -->
+    <link rel="canonical" href="https://yoncaesendemir.com.tr/" />
+
+    <!-- Open Graph / sosyal paylaşım. og:url ve görseller MUTLAK URL olmalı:
+         sosyal botlar göreli yolu (/og-image.jpg) çözemez. -->
     <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://yoncaesendemir.com.tr/" />
     <meta property="og:title" content="TELVE — Every Cup Has a Story" />
     <meta
       property="og:description"
       content="Specialty coffee as a ritual. Every cup has a story."
     />
-    <meta property="og:image" content="/og-image.jpg" />
+    <meta property="og:image" content="https://yoncaesendemir.com.tr/og-image.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="TELVE — Every Cup Has a Story" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content="/og-image.jpg" />
+    <meta name="twitter:image" content="https://yoncaesendemir.com.tr/og-image.jpg" />
   </head>
   <body>
     <div id="root"></div>
